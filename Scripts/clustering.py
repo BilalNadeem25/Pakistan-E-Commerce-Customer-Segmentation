@@ -122,9 +122,12 @@ def run_clustering(df, optimal_k=4):
         current_color = colors[idx % len(colors)]
         ax.plot(angles, values, color=current_color, linewidth=2, label=cluster)
         ax.fill(angles, values, color=current_color, alpha=0.25)
+        ax.set_ylim(0, 1.1)
+        ax.set_yticks(np.linspace(0, 1.1, num=5))
+        ax.yaxis.grid(True, linestyle="dashed", alpha=0.6)
         ax.set_xticks(angles[:-1])
-        ax.set_xticklabels(labels)
-        ax.legend(loc="upper right", bbox_to_anchor=(1.1, 1.1))
+        ax.set_xticklabels(labels, fontsize=10, fontweight="bold")
+        ax.legend(loc="upper right", bbox_to_anchor=(1.15, 1.15), frameon=False)
         radar_figs.append(fig)
         plt.close(fig)  # Prevents display in non-interactive environments
 
