@@ -14,7 +14,7 @@ if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     features_df, radar_figs = run_clustering(df)
 
-    st.write("Clustering Dataframe", features_df)
+    st.write("Customer Segments Table", features_df)
 
     # Add a search box for Customer ID filtering
     customer_id = st.text_input("Search for Customer ID")
