@@ -14,7 +14,7 @@ if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     features_df, radar_figs = run_clustering(df)
 
-    st.write("Clustering Dataframe", features_df)
+    st.write("Customer Segments Table", features_df)
 
     # Add a search box for Customer ID filtering
     customer_id = st.text_input("Search for Customer ID")
@@ -36,7 +36,7 @@ if uploaded_file is not None:
         "Occasional Low Spender": "Customers that only shop occasionally, spending conservatively when they do. They are not loyal but still make purchases from time to time.",
         "VIP Loyalist": "High-value, loyal customers who purchase frequently and spend the most. They are likely to respond well to loyalty programs and exclusive offers.",
         "Luxury Deal Seeker": "Customers who prefer high-value, branded items but are motivated by discounts. They often look for the best deals on premium products.",
-        "Budget Bulk Buyer": "Customers who buy low-value items in larger quantities. They may be stocking up on essential or frequently used items.",
+        "Budget Bulk Buyer": "New customers who buy low-value items in large quantities. They may be stocking up on essentials or frequently used items.",
     }
     cluster_names = (
         features_df["Cluster Name"].unique()
