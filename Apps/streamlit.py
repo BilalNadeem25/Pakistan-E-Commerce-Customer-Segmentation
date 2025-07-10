@@ -5,14 +5,18 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import streamlit as st
 import pandas as pd
+from Scripts.preprocessing import preprocess_data
 from Scripts.clustering import run_clustering
 
 st.title("E-Commerce Customer Segmentation App")
 
 uploaded_file = st.file_uploader("Upload your file in .csv format", type=["csv"])
 if uploaded_file is not None:
+    
     df = pd.read_csv(uploaded_file)
-    features_df, radar_figs = run_clustering(df)
+    
+    orders_df = preprocess_data(df)
+    features_df, radar_figs = run_clustering(orders_df)
 
     st.write("Customer Segments Table", features_df)
 

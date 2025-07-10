@@ -158,9 +158,9 @@ def run_clustering(df, k=4):
     # Map cluster labels to descriptive names
     cluster_name_map = {
         0: "Occasional Low Spender",
-        1: "VIP Loyalist",
-        2: "Luxury Deal Seeker",
-        3: "Budget Bulk Buyer",
+        1: "Luxury Deal Seeker",
+        2: "Budget Bulk Buyer",
+        3: "VIP Loyalist",
     }
     features_df["Cluster Name"] = features_df["Cluster"].replace(cluster_name_map)
     features_df = features_df.drop(columns=["Cluster"])
